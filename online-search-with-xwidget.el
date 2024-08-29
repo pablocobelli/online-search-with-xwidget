@@ -14,6 +14,10 @@
 
 ;;; Code:
 
+(defvar oswx-script-directory
+  (file-name-directory load-file-name)
+  "Directory where the oswx package scripts are located.")
+
 (defun oswx-get-user-input-from-prompt (prompt)
   "Prompt the user with PROMPT and return the input."
   (read-string prompt))
@@ -42,7 +46,7 @@
 
 (defun oswx-run-python-script-with-arg (user-input)
   "Run a Python script with USER-INPUT as an argument and display the output."
-  (let* ((script-path (expand-file-name "search_with_duckduckgo.py" (file-name-directory load-file-name)))
+  (let* ((script-path (expand-file-name "search_with_duckduckgo.py" oswx-script-directory))
          (command (format "python3 %s \"%s\"" script-path user-input))
          (output (shell-command-to-string command)))
     (message "%s" (string-trim output))))

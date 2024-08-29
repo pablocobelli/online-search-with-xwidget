@@ -18,7 +18,9 @@ and add the following:
 
 ``` emacs-lisp
 (package! online-search-with-xwidget
-  :recipe (:host github :repo "pablocobelli/online-search-with-xwidget"))
+  :recipe (:host github
+           :repo "pablocobelli/online-search-with-xwidget"
+           :files ("online-search-with-xwidget.el" "search_with_duckduckgo.py")))
 ```
 
 ## Suggested keybindings for ~emacs~
